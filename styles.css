@@ -18,7 +18,7 @@ body {
 
 header {
   align-self: center;
-  padding: 3rem;
+  padding: 2rem;
   font-size: 2rem;
   font-weight: 700;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
@@ -26,23 +26,23 @@ header {
 
 .button-container {
   align-self: center;
-  padding: 5rem;
+  padding: 5vh;
 }
 
 input[type="button"] {
   align-items: center;
   appearance: none;
   background-color: #fff;
-  border-radius: 2rem;
+  border-radius: 4rem;
   border-style: none;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   color: #3c4043;
   cursor: pointer;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 500;
-  padding: 1.2rem 3rem;
+  padding: 1.5rem 4rem;
 }
 
 input[type="button"]:hover {
