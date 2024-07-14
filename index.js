@@ -33,8 +33,25 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "© OpenStreetMap",
 }).addTo(map);
 
-button.addEventListener("click", (event) => {
-  header.textContent = "clicked";
+button.addEventListener("mouseup", (event) => {
+  window.navigator.geolocation.getCurrentPosition((pos) => {
+    let radiusCircle = distance(
+      pos.coords.longitude,
+      pos.coords.latitude,
+      LONG,
+      LAT
+    );
+    map.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 17);
+
+    console.log(radiusCircle);
+
+    L.circle([pos.coords.latitude, pos.coords.longitude], {
+      radius: radiusCircle * 1000,
+    }).addTo(map);
+  });
+});
+
+button.addEventListener("touchend", (event) => {
   window.navigator.geolocation.getCurrentPosition((pos) => {
     let radiusCircle = distance(
       pos.coords.longitude,
