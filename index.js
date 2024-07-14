@@ -21,12 +21,12 @@ if (typeof Number.prototype.toRad === "undefined") {
 }
 
 function updateMap(event) {
-  if (navigator.geolocation) {
-    header.textContent =
-      "Location is enabled on your browser! If it still doesn't work, enable it for this page.";
-  } else {
-    header.textContent = "Location is not enabled on your browser!";
-  }
+  navigator.geolocation.getCurrentPosition(
+    () => (header.textContent = "Geolocation is working!"),
+    () =>
+      (header.textContent =
+        "Geolocation is not working... Try enabling location for your browser/device settings or for this page")
+  );
 
   navigator.geolocation.getCurrentPosition((pos) => {
     let radiusCircle = distance(
