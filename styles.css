@@ -1,0 +1,48 @@
+body {
+  height: 100vh;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+.frame-container {
+  flex: 1;
+  padding: 3rem 3rem 0 3rem;
+  display: flex;
+}
+
+.main {
+  flex: 1;
+}
+
+.button-container {
+  align-self: center;
+  padding: 5rem;
+}
+
+input[type="button"] {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 2rem;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  color: #3c4043;
+  cursor: pointer;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.2rem 3rem;
+}
+
+input[type="button"]:hover {
+  color: white;
+  background-color: black;
+}
+
+input[type="button"]:active {
+  color: white;
+  background-color: red;
+}
