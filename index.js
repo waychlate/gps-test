@@ -25,12 +25,11 @@ const LONG = -87.62709580663449;
 
 const button = document.querySelector("input");
 
-var map = L.map("map").setView([LAT, LONG], 18);
+var map = L.map("map").fitWorld();
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
-  attribution:
-    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  attribution: "© OpenStreetMap",
 }).addTo(map);
 
 button.addEventListener("click", (event) => {
