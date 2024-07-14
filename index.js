@@ -25,7 +25,7 @@ const LONG = -87.62709580663449;
 
 const button = document.querySelector("input");
 
-var map = L.map("map");
+var map = L.map("map").setView([LAT, LONG], 18);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
