@@ -20,29 +20,35 @@ if (typeof Number.prototype.toRad === "undefined") {
   };
 }
 
-function drawCircle(long1, lat1) {
-  const cityCircle = new google.maps.Circle({
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: "#FF0000",
-    fillOpacity: 0.35,
-    map,
-    center: citymap[city].center,
-    radius: distance(long1, lat1, LONG, LAT),
-  });
-}
+// const LAT = 41.837051344348865;
+// const LONG = -87.62709580663449;
 
-const LAT = 41.837051344348865;
-const LONG = -87.62709580663449;
+const LAT = 29.525119;
+const LONG = -81.240998;
 const button = document.querySelector("input");
-const map = document.querySelector("iframe");
+
+var map = L.map("map");
+
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
 
 button.addEventListener("click", (event) => {
   window.navigator.geolocation.getCurrentPosition((pos) => {
-    const center = `${pos.coords.latitude} ${pos.coords.longitude}`;
+    let radiusCircle = distance(
+      pos.coords.longitude,
+      pos.coords.latitude,
+      LONG,
+      LAT
+    );
+    map.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 17);
 
-    let srcReal = `https://www.google.com/maps/embed/v1/view?key=AIzaSyBEH3B2zirpgJAX4bkbsR80-dqgI7wvRYE&center=${center}&zoom=10`;
-    map.setAttribute("src", srcReal);
+    console.log(radiusCircle);
+
+    L.circle([pos.coords.latitude, pos.coords.longitude], {
+      radius: radiusCircle * 1000,
+    }).addTo(map);
   });
 });

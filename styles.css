@@ -12,7 +12,7 @@ body {
   display: flex;
 }
 
-.main {
+#map {
   flex: 1;
 }
 
