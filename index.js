@@ -20,11 +20,9 @@ if (typeof Number.prototype.toRad === "undefined") {
   };
 }
 
-// const LAT = 41.837051344348865;
-// const LONG = -87.62709580663449;
+const LAT = 41.837051344348865;
+const LONG = -87.62709580663449;
 
-const LAT = 29.525119;
-const LONG = -81.240998;
 const button = document.querySelector("input");
 
 var map = L.map("map");
