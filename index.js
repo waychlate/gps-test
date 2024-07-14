@@ -20,6 +20,24 @@ if (typeof Number.prototype.toRad === "undefined") {
   };
 }
 
+function updateMap(event) {
+  navigator.geolocation.getCurrentPosition((pos) => {
+    let radiusCircle = distance(
+      pos.coords.longitude,
+      pos.coords.latitude,
+      LONG,
+      LAT
+    );
+    map.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 17);
+
+    console.log(radiusCircle);
+
+    L.circle([pos.coords.latitude, pos.coords.longitude], {
+      radius: radiusCircle * 1000,
+    }).addTo(map);
+  });
+}
+
 const LAT = 41.837051344348865;
 const LONG = -87.62709580663449;
 
@@ -34,37 +52,9 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 button.addEventListener("mouseup", (event) => {
-  window.navigator.geolocation.getCurrentPosition((pos) => {
-    let radiusCircle = distance(
-      pos.coords.longitude,
-      pos.coords.latitude,
-      LONG,
-      LAT
-    );
-    map.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 17);
-
-    console.log(radiusCircle);
-
-    L.circle([pos.coords.latitude, pos.coords.longitude], {
-      radius: radiusCircle * 1000,
-    }).addTo(map);
-  });
+  updateMap(event);
 });
 
 button.addEventListener("touchend", (event) => {
-  window.navigator.geolocation.getCurrentPosition((pos) => {
-    let radiusCircle = distance(
-      pos.coords.longitude,
-      pos.coords.latitude,
-      LONG,
-      LAT
-    );
-    map.setView(new L.LatLng(pos.coords.latitude, pos.coords.longitude), 17);
-
-    console.log(radiusCircle);
-
-    L.circle([pos.coords.latitude, pos.coords.longitude], {
-      radius: radiusCircle * 1000,
-    }).addTo(map);
-  });
+  updateMap(event);
 });
