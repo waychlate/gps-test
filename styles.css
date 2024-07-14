@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  align-self: center;
+  text-align: center;
   padding: 2rem;
   font-size: 2rem;
   font-weight: 700;
