@@ -49,7 +49,7 @@ const LAT = 41.837051344348865;
 const LONG = -87.62709580663449;
 
 const button = document.querySelector("input");
-const header = document.querySelector("header");
+const header = document.querySelector("h1");
 
 var map = L.map("map").fitWorld();
 
